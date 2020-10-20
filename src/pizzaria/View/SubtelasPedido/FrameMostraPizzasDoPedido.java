@@ -288,6 +288,7 @@ public class FrameMostraPizzasDoPedido extends javax.swing.JFrame implements Obs
     }
 
     private void atualizarTabela() {
+        tpp.deleteAll();
         carregarNaTabela();
     }
 
@@ -433,7 +434,7 @@ public class FrameMostraPizzasDoPedido extends javax.swing.JFrame implements Obs
 
     @Override
     public void setObservador() {
-        this.atualizarTabela();
+        atualizarTabela();
     }
 
     @Override
