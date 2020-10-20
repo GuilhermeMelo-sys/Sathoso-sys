@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import pizzaria.Model.Cobertura;
 import pizzaria.Model.PedidoPizza;
 
 /**
@@ -18,6 +19,15 @@ import pizzaria.Model.PedidoPizza;
  */
 public class PizzaReadOnlyPedido extends PizzaReadOnly{
     private int quantidade;
+    private Cobertura cobertura;
+
+    public Cobertura getCobertura() {
+        return cobertura;
+    }
+
+    public void setCobertura(Cobertura cobertura) {
+        this.cobertura = cobertura;
+    }
 
     public int getQuantidade() {
         return quantidade;
@@ -39,14 +49,16 @@ public class PizzaReadOnlyPedido extends PizzaReadOnly{
         super(id, tipoPizza, sabor, valor);
     }
     
-    public PizzaReadOnlyPedido(int id, PizzasEnum tipoPizza, String sabor, BigDecimal valor, int quantidade) {
+    public PizzaReadOnlyPedido(int id, PizzasEnum tipoPizza, String sabor, BigDecimal valor, int quantidade, Cobertura cobertura) {
         super(id, tipoPizza, sabor, valor);
         this.quantidade = quantidade;
+        this.cobertura = cobertura;
     }
     
-    public PizzaReadOnlyPedido(PizzaReadOnly pizza, int quantidade) {
+    public PizzaReadOnlyPedido(PizzaReadOnly pizza, int quantidade, Cobertura cobertura) {
         super(pizza.getId(), pizza.getTipoPizza(), pizza.getSabor(), pizza.getValor());
         this.quantidade = quantidade;
+        this.cobertura = cobertura;
     }
     
     public static ArrayList<PizzaReadOnlyPedido> converterLista(List<PizzaReadOnly> lista){
