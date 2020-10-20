@@ -80,4 +80,10 @@ public class PizzaReadOnlyPedido extends PizzaReadOnly{
         return String.format("%s, %s, %s, %s, %s, %s", this.getId(), this.getTipoPizza(),
                 this.getSabor(), this.getValor(), this.getQuantidade(), this.getCobertura());
     }
+    
+    public boolean modeloIgual(PizzaReadOnlyPedido pizza){
+        return pizza.id == this.id 
+                && pizza.getTipoPizza().name().equals(getTipoPizza().name())
+                && pizza.getCobertura() == cobertura;
+    }
 }

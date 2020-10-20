@@ -138,16 +138,11 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     private int PegarIndice(IFramePizzaDoPedido frame) {
         for (int i = 0; i < model.size(); i++) {
             PizzaReadOnlyPedido modelo = ConverterParaModelo(model.getElementAt(i).toString());
-            if (ModeloIgual(frame, modelo)) {
+            if (modelo.modeloIgual(ConverterParaModelo(frame))) {
                 return i;
             }
         }
         return -1;
-    }
-
-    private boolean ModeloIgual(IFramePizzaDoPedido frame, PizzaReadOnlyPedido modelo) {
-        return frame.getIdPizza()== modelo.getId()
-                && frame.getTipoPizza().name().equals(modelo.getTipoPizza().name());
     }
 
 }
