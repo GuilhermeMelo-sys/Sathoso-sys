@@ -19,11 +19,11 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  */
 public class ConfiguraJScroll {
 
-    public static void configJscrollPane(JScrollPane jscb) {
-        jscb.getVerticalScrollBar().setBackground(Color.white);
-        jscb.getHorizontalScrollBar().setBackground(Color.white);
+    public static void configJscrollPane(JScrollPane jsb) {
+        jsb.getVerticalScrollBar().setBackground(Color.white);
+        jsb.getHorizontalScrollBar().setBackground(Color.white);
 
-        jscb.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+        jsb.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
                 this.thumbDarkShadowColor = Color.gray.brighter();
@@ -49,7 +49,7 @@ public class ConfiguraJScroll {
 
         });
 
-        jscb.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
+        jsb.getHorizontalScrollBar().setUI(new BasicScrollBarUI() {
             @Override
             protected void configureScrollBarColors() {
                 this.thumbDarkShadowColor = Color.gray.brighter();
