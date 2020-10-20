@@ -193,7 +193,7 @@ public class PedidoPizzaDao implements Dao<PedidoPizza> {
         Cobertura cobertura = new CoberturaDao().pegarUnico(rs.getInt(4));
         
         PizzaReadOnlyPedido Prop = new PizzaReadOnlyPedido(new PizzaDao().
-                   pegarPorTipo(rs.getInt(3), rs.getInt(6)), rs.getInt(5), cobertura);
+                   pegarPorTipo(rs.getInt(3), rs.getInt(6)), rs.getInt(5), cobertura.getId());
      
         return new PedidoPizza(Prop, cobertura, rs.getInt(2), rs.getInt(1));
     }

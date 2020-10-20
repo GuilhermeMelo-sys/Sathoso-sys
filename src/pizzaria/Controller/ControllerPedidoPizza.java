@@ -65,8 +65,8 @@ public class ControllerPedidoPizza implements Controller<IFramePizzaRelacionadaP
 
     private PizzaReadOnlyPedido criarPizzaDoPedido(IFramePizzaRelacionadaPedido valor) {
         return new PizzaReadOnlyPedido(valor.getIdPizza(),
-                valor.getTipoPizza(), valor.getSabor(),
-                valor.getValor(), valor.getQuantidade());
+                valor.getTipoPizza(), valor.getSabor(), valor.getValor(), 
+                valor.getQuantidade(), valor.getCobertura().getIdCobertura());
     }
 
     @Override
