@@ -54,12 +54,11 @@ public class Pedido {
         return valorTotal;
     }
 
-    public BigDecimal calcularValores(List<PedidoPizza> pizzas) {
+    public void calcularValores(List<PedidoPizza> pizzas) {
         BigDecimal valorDaLista = BigDecimal.ZERO;
         for (PedidoPizza pizza : pizzas) {
             valorDaLista = valorDaLista.add(pizza.calcularValor());
         }
-        return valorDaLista;
     }
 
     public void setValorTotal(BigDecimal valor) {
