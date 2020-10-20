@@ -52,9 +52,9 @@ public class PedidoPizza {
 
     public BigDecimal calcularValores(List<PedidoPizza> pizzas) {
         BigDecimal valorDaLista = BigDecimal.ZERO;
-        pizzas.forEach((c) -> {
-            valorDaLista.add(c.calcularValor());
-        });
+        for(PedidoPizza pizza : pizzas){
+            valorDaLista = valorDaLista.add(pizza.calcularValor());
+        }
         return valorDaLista;
     }
 
