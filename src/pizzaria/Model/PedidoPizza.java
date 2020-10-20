@@ -68,7 +68,7 @@ public class PedidoPizza {
     
     public PedidoPizza(PizzaReadOnly pizza, int pedido,  Cobertura cobertura, int quantidade, int id) {
         this.pizzasPedido = new PizzaReadOnlyPedido(pizza.getId(), pizza.getTipoPizza(),
-                pizza.getSabor(), pizza.getValor(), quantidade);
+                pizza.getSabor(), pizza.getValor(), quantidade, cobertura.getId());
         this.id = id;
         this.idPedido = pedido;
         this.cobertura = cobertura;

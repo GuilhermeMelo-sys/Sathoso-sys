@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import pizzaria.Controller.ControllerCobertura;
 import readOnly.PizzaReadOnlyPedido;
 import pizzaria.Interfaces.ControllerLista;
 import pizzaria.Interfaces.Frame.IFrame;
@@ -101,9 +102,10 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     @Override
     public PizzaReadOnlyPedido ConverterParaModelo(String campo) {
         String[] campos = campo.split(",");
-        return new PizzaReadOnlyPedido(Integer.parseInt(campos[0]), PizzasEnum.valueOf(campos[1].trim()),
-                campos[2], BigDecimal.valueOf(Double.parseDouble(campos[3])),
-                Integer.parseInt(campos[4].trim())
+        return new PizzaReadOnlyPedido(Integer.parseInt(campos[0]), 
+                PizzasEnum.valueOf(campos[1].trim()), campos[2], 
+                BigDecimal.valueOf(Double.parseDouble(campos[3])),
+                Integer.parseInt(campos[4].trim()), Integer.parseInt(campos[5].trim())
         );
     }
 
@@ -121,7 +123,7 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     private PizzaReadOnlyPedido TraduzirFormulario(IFrameCadastroPedido form) {
         PizzaReadOnlyPedido pizzaPedido = new PizzaReadOnlyPedido(form.getIdPizza(),
                 form.getTipoRelacionadoNaList(), form.getSabor().trim(), form.getValor(),
-                form.getQuantidade()
+                form.getQuantidade(), form.getCobertura().getIdCobertura()
         );
         return pizzaPedido;
     }
@@ -136,16 +138,11 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     private int PegarIndice(IFramePizzaDoPedido frame) {
         for (int i = 0; i < model.size(); i++) {
             PizzaReadOnlyPedido modelo = ConverterParaModelo(model.getElementAt(i).toString());
-            if (ModeloIgual(frame, modelo)) {
+            if (modelo.modeloIgual(ConverterParaModelo(frame))) {
                 return i;
             }
         }
         return -1;
-    }
-
-    private boolean ModeloIgual(IFramePizzaDoPedido frame, PizzaReadOnlyPedido modelo) {
-        return frame.getIdPizza()== modelo.getId()
-                && frame.getTipoPizza().name().equals(modelo.getTipoPizza().name());
     }
 
 }
