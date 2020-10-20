@@ -16,6 +16,7 @@ import pizzaria.Interfaces.IPedido;
 import pizzaria.Model.Pedido;
 import pizzaria.Interfaces.Frame.IFrameAltera;
 import pizzaria.Interfaces.Frame.IFrameConsultaEndereco;
+import pizzaria.View.Util.ConfiguraJScroll;
 
 /**
  *
@@ -174,6 +175,7 @@ public class FrameConsultaEndereco extends javax.swing.JPanel implements IFrameA
     
     private void CarregarDados() {
         model.clear();
+        ConfiguraJScroll.configJscrollPane(jScrollPane3);
         controllerEndereco.pegarVarios().forEach(c -> model.addElement(c.toString()));
     }
     
