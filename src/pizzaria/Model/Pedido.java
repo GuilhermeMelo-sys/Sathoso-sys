@@ -59,6 +59,7 @@ public class Pedido {
         for (PedidoPizza pizza : pizzas) {
             valorDaLista = valorDaLista.add(pizza.calcularValor());
         }
+        this.setValorTotal(valorDaLista);
     }
 
     public void setValorTotal(BigDecimal valor) {
