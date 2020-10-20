@@ -102,9 +102,10 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     @Override
     public PizzaReadOnlyPedido ConverterParaModelo(String campo) {
         String[] campos = campo.split(",");
-        return new PizzaReadOnlyPedido(Integer.parseInt(campos[0]), PizzasEnum.valueOf(campos[1].trim()),
-                campos[2], BigDecimal.valueOf(Double.parseDouble(campos[3])),
-                Integer.parseInt(campos[4].trim())
+        return new PizzaReadOnlyPedido(Integer.parseInt(campos[0]), 
+                PizzasEnum.valueOf(campos[1].trim()), campos[2], 
+                BigDecimal.valueOf(Double.parseDouble(campos[3])),
+                Integer.parseInt(campos[4].trim()), Integer.parseInt(campos[5].trim())
         );
     }
 
@@ -122,7 +123,7 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     private PizzaReadOnlyPedido TraduzirFormulario(IFrameCadastroPedido form) {
         PizzaReadOnlyPedido pizzaPedido = new PizzaReadOnlyPedido(form.getIdPizza(),
                 form.getTipoRelacionadoNaList(), form.getSabor().trim(), form.getValor(),
-                form.getQuantidade(), ControllerCobertura.converter(form.getCobertura())
+                form.getQuantidade(), form.getCobertura().getIdCobertura()
         );
         return pizzaPedido;
     }

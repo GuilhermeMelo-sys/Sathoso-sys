@@ -19,13 +19,13 @@ import pizzaria.Model.PedidoPizza;
  */
 public class PizzaReadOnlyPedido extends PizzaReadOnly{
     private int quantidade;
-    private Cobertura cobertura;
+    private int cobertura;
 
-    public Cobertura getCobertura() {
+    public int getCobertura() {
         return cobertura;
     }
 
-    public void setCobertura(Cobertura cobertura) {
+    public void setCobertura(int cobertura) {
         this.cobertura = cobertura;
     }
 
@@ -49,13 +49,13 @@ public class PizzaReadOnlyPedido extends PizzaReadOnly{
         super(id, tipoPizza, sabor, valor);
     }
     
-    public PizzaReadOnlyPedido(int id, PizzasEnum tipoPizza, String sabor, BigDecimal valor, int quantidade, Cobertura cobertura) {
+    public PizzaReadOnlyPedido(int id, PizzasEnum tipoPizza, String sabor, BigDecimal valor, int quantidade, int cobertura) {
         super(id, tipoPizza, sabor, valor);
         this.quantidade = quantidade;
         this.cobertura = cobertura;
     }
     
-    public PizzaReadOnlyPedido(PizzaReadOnly pizza, int quantidade, Cobertura cobertura) {
+    public PizzaReadOnlyPedido(PizzaReadOnly pizza, int quantidade, int cobertura) {
         super(pizza.getId(), pizza.getTipoPizza(), pizza.getSabor(), pizza.getValor());
         this.quantidade = quantidade;
         this.cobertura = cobertura;
