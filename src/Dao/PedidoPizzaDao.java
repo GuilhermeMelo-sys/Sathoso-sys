@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import pizzaria.Interfaces.Dao;
+import pizzaria.Model.Cobertura;
 import pizzaria.Model.PedidoPizza;
 import readOnly.PizzaReadOnlyPedido;
 
@@ -189,11 +190,12 @@ public class PedidoPizzaDao implements Dao<PedidoPizza> {
     
     
     private PedidoPizza gerarObjeto() throws SQLException {
+        Cobertura cobertura = new CoberturaDao().pegarUnico(rs.getInt(4));
+        
         PizzaReadOnlyPedido Prop = new PizzaReadOnlyPedido(new PizzaDao().
-                   pegarPorTipo(rs.getInt(3), rs.getInt(6)), rs.getInt(5));
+                   pegarPorTipo(rs.getInt(3), rs.getInt(6)), rs.getInt(5), cobertura);
      
-        return new PedidoPizza(Prop, new CoberturaDao().pegarUnico(rs.getInt(4)),
-                rs.getInt(2), rs.getInt(1));
+        return new PedidoPizza(Prop, cobertura, rs.getInt(2), rs.getInt(1));
     }
     
     @Override
