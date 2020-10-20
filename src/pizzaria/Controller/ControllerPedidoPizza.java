@@ -6,17 +6,14 @@
 package pizzaria.Controller;
 
 import Dao.PedidoPizzaDao;
-import Enum.ConverterPizzasEnum;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import pizzaria.Interfaces.Controller;
 import pizzaria.Interfaces.Frame.IFrameAltera;
-import pizzaria.Interfaces.Frame.IFrameCadastroPedido;
 import pizzaria.Interfaces.Frame.IFramePizzaRelacionadaPedido;
 import pizzaria.Model.PedidoPizza;
-import pizzaria.Model.Pizza;
 import readOnly.PizzaReadOnlyPedido;
 
 /**
