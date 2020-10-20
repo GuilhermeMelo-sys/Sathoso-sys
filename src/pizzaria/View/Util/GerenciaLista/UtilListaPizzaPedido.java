@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import pizzaria.Controller.ControllerCobertura;
 import readOnly.PizzaReadOnlyPedido;
 import pizzaria.Interfaces.ControllerLista;
 import pizzaria.Interfaces.Frame.IFrame;
@@ -121,7 +122,7 @@ public class UtilListaPizzaPedido implements ControllerLista<PizzaReadOnlyPedido
     private PizzaReadOnlyPedido TraduzirFormulario(IFrameCadastroPedido form) {
         PizzaReadOnlyPedido pizzaPedido = new PizzaReadOnlyPedido(form.getIdPizza(),
                 form.getTipoRelacionadoNaList(), form.getSabor().trim(), form.getValor(),
-                form.getQuantidade()
+                form.getQuantidade(), ControllerCobertura.converter(form.getCobertura())
         );
         return pizzaPedido;
     }
