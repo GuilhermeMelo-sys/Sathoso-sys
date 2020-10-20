@@ -77,7 +77,7 @@ public class PizzaReadOnlyPedido extends PizzaReadOnly{
   
     @Override
     public String toString(){
-        return String.format("%s, %s, %s, %s, %s", this.getId(), this.getTipoPizza(),
-                this.getSabor(), this.getValor(), this.getQuantidade());
+        return String.format("%s, %s, %s, %s, %s, %s", this.getId(), this.getTipoPizza(),
+                this.getSabor(), this.getValor(), this.getQuantidade(), this.getCobertura());
     }
 }
