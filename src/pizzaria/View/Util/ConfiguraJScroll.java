@@ -17,7 +17,7 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  *
  * @author Guilh
  */
-public class ConfigurarJScroll {
+public class ConfiguraJScroll {
        
     public static void configJscrollPane(JScrollPane jsb) {
         jsb.getVerticalScrollBar().setBackground(Color.white);

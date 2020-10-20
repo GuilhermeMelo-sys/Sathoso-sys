@@ -57,7 +57,6 @@ public class FrameMostraPizzasDoPedido extends javax.swing.JFrame implements Obs
     }
 
     private void carregarNaTabela() {
-        tbPizzas.removeAll();
         controllerPedidoPizza.pegar(idPedido).forEach(
                 c -> tpp.addRow(new Object[]{c.getPizza().getId(), c.getPedido(),
             c.getCobertura().getId(), c.getPizza().getSabor(), c.getId(),

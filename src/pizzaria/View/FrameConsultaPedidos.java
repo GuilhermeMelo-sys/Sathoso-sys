@@ -17,7 +17,7 @@ import pizzaria.Interfaces.Frame.Observador;
 import pizzaria.Model.TableModel.TablePedido;
 import pizzaria.View.SubtelasPedido.FrameAlterar;
 import pizzaria.View.SubtelasPedido.FrameMostraPizzasDoPedido;
-import pizzaria.View.Util.ConfigurarJScroll;
+import pizzaria.View.Util.ConfiguraJScroll;
 
 /**
  *
@@ -46,7 +46,7 @@ public class FrameConsultaPedidos extends javax.swing.JPanel implements Observad
     private void ConfiguracaoVisualTabela() {
         tbPedidos.setRowHeight(25);
         tbPedidos.setBorder(BorderFactory.createEmptyBorder());
-        ConfigurarJScroll.configJscrollPane(jScrollPane1);
+        ConfiguraJScroll.configJscrollPane(jScrollPane1);
     }
 
     private void ConfigurarTable() {
