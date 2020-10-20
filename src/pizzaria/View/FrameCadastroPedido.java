@@ -23,7 +23,7 @@ import pizzaria.View.Util.Utilidade;
 import readOnly.PizzaReadOnly;
 import pizzaria.Controller.ControllerPedidoPizza;
 import pizzaria.Interfaces.ControllerLista;
-import pizzaria.View.Util.ConfigurarJScroll;
+import pizzaria.View.Util.ConfiguraJScroll;
 import pizzaria.Interfaces.Frame.IFrameCadastroPedido;
 import pizzaria.Interfaces.Frame.IFrameCobertura;
 import pizzaria.Interfaces.Frame.IFramePizzaRelacionadaPedido;
@@ -118,8 +118,8 @@ public class FrameCadastroPedido extends javax.swing.JPanel implements Observado
     }
 
     private void ConfigurarScrollPane() {
-        ConfigurarJScroll.configJscrollPane(jScrollPane1);
-        ConfigurarJScroll.configJscrollPane(jScrollPane2);
+        ConfiguraJScroll.configJscrollPane(jScrollPane1);
+        ConfiguraJScroll.configJscrollPane(jScrollPane2);
     }
 
     private void carregarPizzas() {
