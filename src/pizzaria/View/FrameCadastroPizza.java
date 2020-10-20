@@ -15,6 +15,7 @@ import pizzaria.Controller.ControllerPizza;
 import pizzaria.Interfaces.Frame.IFrameCadastroPizza;
 import pizzaria.Interfaces.Frame.IFramePizza;
 import pizzaria.Interfaces.IJlist;
+import pizzaria.View.Util.ConfigurarJScroll;
 import pizzaria.View.Util.GerenciaLista.UtilListaCadastroPizza;
 import pizzaria.View.Util.Utilidade;
 
@@ -41,6 +42,7 @@ public class FrameCadastroPizza extends javax.swing.JPanel implements IFramePizz
 
         controllerLista = new UtilListaCadastroPizza(this);
         lstPizzas.setModel(listModel);
+        ConfigurarJScroll.configJscrollPane(jScrollPane1);
     }
 
     /**
