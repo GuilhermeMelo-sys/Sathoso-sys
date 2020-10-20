@@ -53,7 +53,7 @@ public class ControllerPedido implements Controller<IPedido> {
     private void configurarAtualizacao(List<PedidoPizza> pizzas) {
         Pedido pedido = pegarUnico(pizzas.get(0).getPedido());
         
-        pedido.setValorTotal(pizzas.get(0).calcularValores(pizzas));
+        pedido.calcularValores(pizzas);
         
         atualizarPeloPedido(pedido);
     }

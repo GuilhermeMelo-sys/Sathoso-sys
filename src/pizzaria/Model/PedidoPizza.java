@@ -50,14 +50,6 @@ public class PedidoPizza {
         return id;
     }
 
-    public BigDecimal calcularValores(List<PedidoPizza> pizzas) {
-        BigDecimal valorDaLista = BigDecimal.ZERO;
-        for(PedidoPizza pizza : pizzas){
-            valorDaLista = valorDaLista.add(pizza.calcularValor());
-        }
-        return valorDaLista;
-    }
-
     public BigDecimal calcularValor() {
         return getCobertura().getValor().add(getPizza().getValor()
                 .multiply(BigDecimal.valueOf(getPizza().getQuantidade())));
