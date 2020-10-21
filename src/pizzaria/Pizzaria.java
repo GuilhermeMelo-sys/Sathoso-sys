@@ -14,6 +14,6 @@ public class Pizzaria {
      */
     public static void main(String[] args) {
         //MainFrame mainFrame = new pizzaria.View.MainFrame();
-        new FrameMain().setVisible(true);
+        new FrameAcesso().setVisible(true);
     }
 }

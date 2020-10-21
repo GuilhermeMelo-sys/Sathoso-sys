@@ -14,7 +14,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import pizzaria.View.Util.ColorJMenu;
 import javax.swing.JPanel;
-import pizzaria.View.FrameMain.ClickHandler;
 import pizzaria.View.Util.ConfiguraPanel;
 
 /**
@@ -31,6 +30,7 @@ public class FrameMain extends javax.swing.JFrame {
         initComponents();
         this.setEnabled(false);
         new FrameAcesso().setVisible(true);
+        JOptionPane.showMessageDialog(null, "Logue na sua base de dados antes de prosseguir!");
     }
 
     public FrameMain(int acesso) {
