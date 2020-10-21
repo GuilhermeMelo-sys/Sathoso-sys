@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import pizzaria.View.FrameAcesso;
 
 /**
  *
@@ -18,9 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class ConnectionFactory {
     private final static String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final static String USUARIO = "root";
-    private final static String SENHA = "1234";
-    private final static String URL = "jdbc:mysql://localhost:3306/pizzaria?useTimezone=true&serverTimezone=UTC";
+    private final static String USUARIO =  FrameAcesso.usuario;
+    private final static String SENHA = FrameAcesso.senha;
+    private final static String URL = "jdbc:mysql://localhost:3306/"+FrameAcesso.bancoDeDados+"?useTimezone=true&serverTimezone=UTC";
     
     public static java.sql.Connection connection(){
         try {
