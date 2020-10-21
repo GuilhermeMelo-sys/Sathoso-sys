@@ -29,8 +29,7 @@ public class ConnectionFactory {
      
             return DriverManager.getConnection(URL, USUARIO, SENHA);
         } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados : "+ ex);
-            throw new RuntimeException();
+            throw new RuntimeException("Não foi possível conectar ao banco de dados");
         }
     }
 

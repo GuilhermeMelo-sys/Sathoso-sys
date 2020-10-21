@@ -5,6 +5,7 @@
  */
 package pizzaria.View;
 
+import Dao.ConnectionFactory;
 import javax.swing.JOptionPane;
 import pizzaria.View.Util.Utilidade;
 
@@ -40,10 +41,10 @@ public class FrameAcesso extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNomeDoUsuario = new javax.swing.JTextField();
-        txtSenhaDoUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnLogar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        txtSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -62,8 +63,6 @@ public class FrameAcesso extends javax.swing.JFrame {
         jLabel3.setText("Senha do Usuário:");
 
         txtNomeDoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-
-        txtSenhaDoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Logar na Pizzaria");
@@ -85,6 +84,8 @@ public class FrameAcesso extends javax.swing.JFrame {
             }
         });
 
+        txtSenha.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout pnMainLayout = new javax.swing.GroupLayout(pnMain);
         pnMain.setLayout(pnMainLayout);
         pnMainLayout.setHorizontalGroup(
@@ -98,15 +99,14 @@ public class FrameAcesso extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnMainLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(pnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(txtNomeDoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                                .addComponent(txtSenhaDoUsuario)
-                                .addComponent(txtBancoDedados)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomeDoUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBancoDedados, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -119,19 +119,19 @@ public class FrameAcesso extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtBancoDedados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtNomeDoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(txtSenhaDoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(btnLogar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,23 +156,32 @@ public class FrameAcesso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
-        if (Utilidade.VerificarCamposVazios(pnMain)) {
-            JOptionPane.showMessageDialog(null, "Existem campos vazios!");;
+        if (!(Utilidade.VerificarCamposVazios(pnMain))) {
+            try{
+                cadastrar();
+                ConnectionFactory.connection();
+                configurarEntrada();
+                
+            } catch(RuntimeException ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
         } else {
-            cadastrar();
-            JOptionPane.showMessageDialog(null, "Logado com sucesso!");
-            new FrameMain(1).setVisible(true);
-            this.dispose();
+            JOptionPane.showMessageDialog(null, "Existem campos vazios!");
         }
     }//GEN-LAST:event_btnLogarActionPerformed
 
+    private void configurarEntrada() {
+        JOptionPane.showMessageDialog(null, "Logado com sucesso!");
+        new FrameMain(1).setVisible(true);
+        this.dispose();
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cadastrar() {
         bancoDeDados = txtBancoDedados.getText();
-        senha = txtSenhaDoUsuario.getText();
+        senha = String.valueOf(txtSenha.getPassword());
         usuario = txtNomeDoUsuario.getText();
     }
 
@@ -221,6 +230,6 @@ public class FrameAcesso extends javax.swing.JFrame {
     private javax.swing.JPanel pnMain;
     private javax.swing.JTextField txtBancoDedados;
     private javax.swing.JTextField txtNomeDoUsuario;
-    private javax.swing.JTextField txtSenhaDoUsuario;
+    private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

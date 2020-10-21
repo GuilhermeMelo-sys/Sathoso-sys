@@ -13,7 +13,6 @@ public class Pizzaria {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //MainFrame mainFrame = new pizzaria.View.MainFrame();
         new FrameAcesso().setVisible(true);
     }
 }
