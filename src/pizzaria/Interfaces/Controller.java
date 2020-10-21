@@ -24,8 +24,6 @@ public interface Controller<T extends IFrame> {
     
     void atualizar(IFrameAltera dado);
     
-    ArrayList<?> pegarPorDadoEspecifico(T dado);
-    
     ArrayList<?> pegar(int id);
 
     ArrayList<?> pegarVarios();
