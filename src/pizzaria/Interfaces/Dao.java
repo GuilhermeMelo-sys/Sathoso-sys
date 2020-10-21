@@ -20,8 +20,6 @@ public interface Dao<T> {
     
     public T pegarUnico(int id);
     
-    public T pegarPeloObjeto(IFrame form);
-    
     ArrayList<T> pegarTudo();
     
     void adicionar(T objeto) ;
