@@ -8,6 +8,7 @@ package pizzaria.Controller;
 import Dao.CoberturaDao;
 import java.util.ArrayList;
 import pizzaria.Interfaces.Controller;
+import pizzaria.Interfaces.Dao;
 import pizzaria.Interfaces.Frame.IFrameAltera;
 import pizzaria.Interfaces.Frame.IFrameCobertura;
 import pizzaria.Model.Cobertura;
@@ -17,7 +18,7 @@ import pizzaria.Model.Cobertura;
  * @author Pichau
  */
 public class ControllerCobertura implements Controller<IFrameCobertura>{
-    private CoberturaDao coberturaDao;
+    private Dao<Cobertura> coberturaDao;
     
     public ControllerCobertura(){
         coberturaDao = new CoberturaDao();
