@@ -290,6 +290,10 @@ public class FrameMostraPizzasDoPedido extends javax.swing.JFrame implements Obs
     private void atualizarTabela() {
         tpp.deleteAll();
         carregarNaTabela();
+        
+        lblValorTotal.setText(String.valueOf(controllerPedido
+                .pegarUnico(pedido.getIdPedido()).getValorTotal()));
+        obs.setObservador();
     }
 
     private void deletarItem() throws NumberFormatException {
