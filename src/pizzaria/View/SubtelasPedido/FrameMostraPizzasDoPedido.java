@@ -293,6 +293,7 @@ public class FrameMostraPizzasDoPedido extends javax.swing.JFrame implements Obs
         
         lblValorTotal.setText(String.valueOf(controllerPedido
                 .pegarUnico(pedido.getIdPedido()).getValorTotal()));
+        obs.setObservador();
     }
 
     private void deletarItem() throws NumberFormatException {
