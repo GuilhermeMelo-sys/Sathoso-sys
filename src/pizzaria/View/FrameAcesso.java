@@ -144,15 +144,18 @@ public class FrameAcesso extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Existem campos vazios!");;
         } else {
             cadastrar();
-            new FrameMain().setVisible(true);
+            JOptionPane.showMessageDialog(null, "Logado com sucesso!");
+            new FrameMain(1).setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnLogarActionPerformed
-    
-    private void cadastrar(){
+
+    private void cadastrar() {
         bancoDeDados = txtBancoDedados.getText();
         senha = txtSenhaDoUsuario.getText();
         usuario = txtNomeDoUsuario.getText();
     }
+
     /**
      * @param args the command line arguments
      */
