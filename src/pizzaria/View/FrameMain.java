@@ -7,12 +7,14 @@ package pizzaria.View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import pizzaria.View.Util.ColorJMenu;
 import javax.swing.JPanel;
+import pizzaria.View.FrameMain.ClickHandler;
 import pizzaria.View.Util.ConfiguraPanel;
 
 /**
@@ -24,12 +26,6 @@ public class FrameMain extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    class ClickHandler extends MouseAdapter{
-        @Override
-        public void mouseClicked(MouseEvent me){
-            JOptionPane.showMessageDialog(null, "Não é possível interagir, pois o usuario não foi logado!");
-        }
-    }
 
     public FrameMain() {
         initComponents();
