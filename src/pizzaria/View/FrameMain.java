@@ -8,6 +8,9 @@ package pizzaria.View;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import pizzaria.View.Util.ColorJMenu;
 import javax.swing.JPanel;
 import pizzaria.View.Util.ConfiguraPanel;
@@ -21,13 +24,23 @@ public class FrameMain extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public FrameMain() {
-        new FrameAcesso().setVisible(true);
-        this.dispose();
-        initComponents();
+    class ClickHandler extends MouseAdapter{
+        @Override
+        public void mouseClicked(MouseEvent me){
+            JOptionPane.showMessageDialog(null, "Não é possível interagir, pois o usuario não foi logado!");
+        }
     }
-    public FrameMain(int acesso){
+
+    public FrameMain() {
+        initComponents();
+        this.setEnabled(false);
+        new FrameAcesso().setVisible(true);
+    }
+
+    public FrameMain(int acesso) {
+        initComponents();
         ColorJMenu.customizeMenuBar(MnMain, Color.white, Color.black);
+        this.setEnabled(true);
     }
 
     /**
@@ -133,7 +146,6 @@ public class FrameMain extends javax.swing.JFrame {
         ConfiguraPanel.ChamarPanel(this, new FrameConsultaPedidos(), this.PnMain);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-
     /**
      * @param args the command line arguments
      */
@@ -157,7 +169,7 @@ public class FrameMain extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
