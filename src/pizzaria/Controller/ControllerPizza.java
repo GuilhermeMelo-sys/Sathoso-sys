@@ -10,6 +10,7 @@ import java.util.*;
 import pizzaria.Interfaces.Controller;
 import pizzaria.Model.Pizza;
 import javax.swing.JOptionPane;
+import pizzaria.Interfaces.Dao;
 import pizzaria.Interfaces.Frame.IFrameAltera;
 import pizzaria.Interfaces.Frame.IFramePizza;
 import readOnly.PizzaReadOnly;
@@ -20,7 +21,7 @@ import readOnly.PizzaReadOnly;
  */
 public class ControllerPizza implements Controller<IFramePizza> {
 
-    private PizzaDao pizzaDao;
+    private Dao<PizzaReadOnly> pizzaDao;
 
     public ControllerPizza() {
         pizzaDao = new PizzaDao();
@@ -37,19 +38,19 @@ public class ControllerPizza implements Controller<IFramePizza> {
     }
 
     public PizzaReadOnly pegarPorTipo(PizzaReadOnly pro) {
-        return pizzaDao.pegarPorTipo(pro);
+        return new PizzaDao().pegarPorTipo(pro);
     }
 
     public PizzaReadOnly pegarPorTipo(int id, int tipo) {
-        return pizzaDao.pegarPorTipo(id, tipo);
+        return new PizzaDao().pegarPorTipo(id, tipo);
     }
 
     public PizzaReadOnly pegarUnico(int id) {
-        return pizzaDao.pegarUnico(id);
+        return new PizzaDao().pegarUnico(id);
     }
 
     public ArrayList<PizzaReadOnly> pegarAgrupado() {
-        return pizzaDao.pegarDadosAgrupados();
+        return new PizzaDao().pegarDadosAgrupados();
     }
 
     @Override
@@ -75,7 +76,7 @@ public class ControllerPizza implements Controller<IFramePizza> {
     }
 
     private boolean ExisteLogs() {
-        if (pizzaDao.pegarLogs().size() <= 0) {
+        if (new PizzaDao().pegarLogs().size() <= 0) {
             return false;
         }
         exibirLogs();
@@ -103,11 +104,11 @@ public class ControllerPizza implements Controller<IFramePizza> {
 
     private void exibirLogs() {
         String logs = "Alguns dados não foram cadastrados: \n";
-        logs = pizzaDao.pegarLogs().stream().map((pizza) -> pizza.toString() + "\n").reduce(logs, String::concat);
+        logs = new PizzaDao().pegarLogs().stream().map((pizza) -> pizza.toString() + "\n").reduce(logs, String::concat);
         JOptionPane.showMessageDialog(null, logs.trim(), " tente cadastrar com um Id diferente.",
                 JOptionPane.WARNING_MESSAGE);
 
-        pizzaDao.resetarLogs();
+        new PizzaDao().resetarLogs();
     }
 
     @Override

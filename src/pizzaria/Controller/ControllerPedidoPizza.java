@@ -11,6 +11,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import pizzaria.Interfaces.Controller;
+import pizzaria.Interfaces.Dao;
 import pizzaria.Interfaces.Frame.IFrameAltera;
 import pizzaria.Interfaces.Frame.IFramePizzaRelacionadaPedido;
 import pizzaria.Model.PedidoPizza;
@@ -22,7 +23,7 @@ import readOnly.PizzaReadOnlyPedido;
  */
 public class ControllerPedidoPizza implements Controller<IFramePizzaRelacionadaPedido> {
 
-    private PedidoPizzaDao pedidoPizzaDao;
+    private Dao<PedidoPizza> pedidoPizzaDao;
 
     public ControllerPedidoPizza() {
         pedidoPizzaDao = new PedidoPizzaDao();

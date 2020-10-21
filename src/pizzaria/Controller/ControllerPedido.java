@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import pizzaria.Interfaces.Controller;
+import pizzaria.Interfaces.Dao;
 import pizzaria.Interfaces.Frame.IFrameCadastroPedido;
 import pizzaria.Interfaces.Frame.IFrameConsultaPedido;
 import pizzaria.Interfaces.IPedido;
@@ -27,7 +28,7 @@ import pizzaria.Model.PedidoPizza;
  */
 public class ControllerPedido implements Controller<IPedido> {
 
-    private PedidoDao pedidoDao;
+    private Dao<Pedido> pedidoDao;
 
     public ControllerPedido() {
         pedidoDao = new PedidoDao();
@@ -80,7 +81,7 @@ public class ControllerPedido implements Controller<IPedido> {
     }
 
     public ArrayList<Pedido> pegar(boolean estado) {
-        return pedidoDao.pegar(estado);
+        return new PedidoDao().pegar(estado);
     }
 
     @Override
@@ -104,7 +105,7 @@ public class ControllerPedido implements Controller<IPedido> {
 
     @Override
     public boolean verificarChave(int chave) {
-        return pedidoDao.verificarChave(chave);
+        return new PedidoDao().verificarChave(chave);
     }
 
     public BigDecimal calcularValor(PizzaReadOnlyPedido pro) {
