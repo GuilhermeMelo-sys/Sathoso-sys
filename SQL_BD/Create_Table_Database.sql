@@ -1,4 +1,4 @@
-Create Database pizzaria;dba
+Create Database pizzaria;
 
 use pizzaria;
 
@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS pedido(
     valor_final decimal(10, 2),
     estado bool
 );
-drop table pedido;
 CREATE TABLE IF NOT EXISTS pedidoPizza(
 	id int not null primary key,
     id_pedido int,
@@ -31,17 +30,8 @@ CREATE TABLE IF NOT EXISTS pedidoPizza(
     quantidade_pizza int,
     tipo_pizza int
 );
-drop table pedidoPizza;
 CREATE TABLE IF NOT EXISTS cobertura(
 	id int not null primary key,
     nome varchar(40),
     valor decimal
 );
-
-delete from pedidoPizza;
-delete from pedido;
-select*from pizza;
-select*from pedido;
-select*from pedidoPizza;
-
-SELECT*FROM pedidoPizza WHERE and id = ?;
