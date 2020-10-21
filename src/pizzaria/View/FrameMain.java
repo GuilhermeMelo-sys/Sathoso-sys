@@ -22,7 +22,11 @@ public class FrameMain extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public FrameMain() {
+        new FrameAcesso().setVisible(true);
+        this.dispose();
         initComponents();
+    }
+    public FrameMain(int acesso){
         ColorJMenu.customizeMenuBar(MnMain, Color.white, Color.black);
     }
 
