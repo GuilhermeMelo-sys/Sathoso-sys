@@ -108,6 +108,17 @@ public class FrameCadastroPedido extends javax.swing.JPanel implements Observado
         }
     }
 
+    private void selecionarRdbVisivel() {
+        Enumeration elementos = bgTipo.getElements();
+
+        while (elementos.hasMoreElements()) {
+            JRadioButton rdb = (JRadioButton) elementos.nextElement();
+            if(rdb.isVisible()){
+                rdb.setSelected(true);
+            }
+        }
+    }
+
     private void colocarRdbInvisivel() {
         Enumeration elementos = bgTipo.getElements();
 
@@ -534,7 +545,7 @@ public class FrameCadastroPedido extends javax.swing.JPanel implements Observado
 
     private void lstPizzasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPizzasValueChanged
         configurarDescricao();
-
+        selecionarRdbVisivel();
         MudarTextoLblSabor();
         calcularValor();
     }//GEN-LAST:event_lstPizzasValueChanged
@@ -622,7 +633,8 @@ public class FrameCadastroPedido extends javax.swing.JPanel implements Observado
             lblNomeCobertura.setText(Utilidade.atualizarLabelsCobertura(cboCobertura)[0]);
             lblValorCobertura.setText(Utilidade.atualizarLabelsCobertura(cboCobertura)[1]);
             calcularValor();
-        } catch(NullPointerException ex) { }
+        } catch (NullPointerException ex) {
+        }
     }//GEN-LAST:event_cboCoberturaItemStateChanged
 
     private void ConfigurarAposRetirarSelecionados() {
