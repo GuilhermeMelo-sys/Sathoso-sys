@@ -1,0 +1,2 @@
+Antes de entrar na pasta Dist e excutar, faça a criação da base de dados MYSQL pelo arquivo SQL que está na pasta SQL_BD.
+Depois que criar o banco e suas tabelas pode executar.
