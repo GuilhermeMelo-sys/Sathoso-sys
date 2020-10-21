@@ -16,6 +16,8 @@ import pizzaria.Interfaces.Frame.IFrame;
  */
 public interface Dao<T> {
     
+    
+    
     ArrayList<T> pegar(int id) ;
     
     public T pegarUnico(int id);
