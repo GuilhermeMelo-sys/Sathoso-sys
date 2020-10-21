@@ -5,9 +5,11 @@
  */
 package pizzaria.Controller;
 
+import Dao.CoberturaDao;
 import Dao.EnderecoDao;
 import java.util.ArrayList;
 import pizzaria.Interfaces.Controller;
+import pizzaria.Interfaces.Dao;
 import pizzaria.Interfaces.Frame.IFrameAltera;
 import pizzaria.Interfaces.Frame.IFrameConsultaEndereco;
 import pizzaria.Model.Endereco;
@@ -18,7 +20,7 @@ import readOnly.EnderecoReadOnly;
  * @author Guilh
  */
 public class ControllerEndereco implements Controller<IFrameConsultaEndereco>{
-    private EnderecoDao enderecoDao;
+    private Dao<Endereco> enderecoDao;
     EnderecoReadOnly ero = null;
     
     public ControllerEndereco(){
@@ -43,10 +45,6 @@ public class ControllerEndereco implements Controller<IFrameConsultaEndereco>{
     @Override
     public ArrayList<Endereco> pegar(int id) {
         return enderecoDao.pegar(id);
-    }
-    
-    public ArrayList<Endereco> pegarPelaCidade(String cidade){
-        return enderecoDao.pegarPelaCidade(cidade);
     }
 
     @Override

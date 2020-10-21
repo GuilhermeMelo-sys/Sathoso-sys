@@ -164,7 +164,7 @@ public class FrameConsultaEndereco extends javax.swing.JPanel implements IFrameA
     }
 
     public void ProcurarDado(String cidade){
-        ArrayList<Endereco> enderecos = controllerEndereco.pegarPelaCidade(cidade);
+        ArrayList<Endereco> enderecos = controllerEndereco.(this);
         model.clear();
         enderecos.forEach(c -> model.addElement(c));
     }

@@ -7,6 +7,7 @@ package pizzaria.Interfaces;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import pizzaria.Interfaces.Frame.IFrame;
 
 /**
  *
@@ -18,6 +19,8 @@ public interface Dao<T> {
     ArrayList<T> pegar(int id) ;
     
     public T pegarUnico(int id);
+    
+    public T pegarPeloObjeto(IFrame form);
     
     ArrayList<T> pegarTudo();
     
